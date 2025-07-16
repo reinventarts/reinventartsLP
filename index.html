@@ -206,7 +206,7 @@
         </section>
 
         <!-- Contato Section -->
-        <section id="contato" class="py-20 md:py-28 bg-[#151515]" style="display:none">
+        <section id="contato" class="py-20 md:py-28 bg-[#151515]">
             <div class="container mx-auto px-6">
                 <div class="text-center mb-12">
                     <h2 class="section-title">Vamos construir o futuro juntos?</h2>
@@ -254,7 +254,7 @@
         menuBtn.addEventListener('click', () => {
             mobileMenu.classList.toggle('hidden');
         });
-
+        
         // Defer icon rendering until the window has fully loaded
         window.onload = function() {
             const createIcon = (elementId, iconName) => {
@@ -273,6 +273,20 @@
             createIcon('icon-seo', 'Search');
             createIcon('icon-automation', 'Zap');
         };
+
+        document.querySelector('form').addEventListener('submit', function(e) {
+            e.preventDefault();
+    
+            const name = document.getElementById('name').value.trim();
+            const email = document.getElementById('email').value.trim();
+            const message = document.getElementById('message').value.trim();
+    
+            const phoneNumber = '5519997527772'; // troque para o número real com DDI
+            const text = `👋 Olá! Me chamo ${name}%0A📧 Email: ${email}%0A📝 Mensagem: ${message}`;
+    
+            const whatsappURL = `https://wa.me/${phoneNumber}?text=${text}`;
+            window.open(whatsappURL, '_blank');
+        });
     </script>
 </body>
 </html>
